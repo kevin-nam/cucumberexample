@@ -17,11 +17,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static com.robsab.example.StaticVariables.ADDED_TO_CART_SUCCESS_MSG;
 import static com.robsab.example.StaticVariables.ADDED_TO_CART_SUCCESS_MSG_CONTAINER;
 import static com.robsab.example.StaticVariables.ADD_TO_CART_BTN_ID;
+import static com.robsab.example.StaticVariables.CURSOR_NOT_ALLOWED;
 import static com.robsab.example.StaticVariables.FIRST_PRODUCT_RESULT_CONTAINER_CLASS;
 import static com.robsab.example.StaticVariables.PRODUCT_URL_TO_BASKETBALL_HOOP_SYSTEM;
 import static com.robsab.example.StaticVariables.SEARCH_BAR_ID;
 import static com.robsab.example.StaticVariables.SEARCH_BAR_SUBMIT_CLASS;
 import static com.robsab.example.StaticVariables.SELECT_BY_SIZE_ID;
+import static com.robsab.example.StaticVariables.STYLE_ATTR;
 
 public class AmazonStepDefinitions {
 
@@ -119,7 +121,7 @@ public class AmazonStepDefinitions {
             new WebDriverWait(driver, TIMEOUT)
                     .until((ExpectedCondition<Boolean>) driver -> {
                         WebElement btn = driver.findElement(By.id(ADD_TO_CART_BTN_ID));
-                        return !btn.getAttribute("style").equals("cursor: not-allowed;");
+                        return !btn.getAttribute(STYLE_ATTR).equals(CURSOR_NOT_ALLOWED);
                     });
 
         } catch (Exception e) {
@@ -164,5 +166,8 @@ public class AmazonStepDefinitions {
         return text.contains(stringToFind);
     }
 
+    private String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
 
 }
