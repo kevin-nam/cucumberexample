@@ -8,6 +8,7 @@ For: Robert Sabourin
 3. IntelliJ 2017.1.3 Community Edition, with plugins:
    - Gherkin
    - Cucumber-Java
+4. Google Chrome
 
 ## Dependencies Used
 
