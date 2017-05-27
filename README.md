@@ -66,4 +66,12 @@ You can right-click on any feature file and run it, but they must be configured 
 
 ![example](http://i.imgur.com/K0HXlMt.png "Example configuration")
 
+## References
+- (Cucumber.io)[https://cucumber.io/]
+- (Gherkin Syntax)[https://github.com/cucumber/cucumber/wiki/Gherkin]
+- (Cucumber Best Practices)[https://github.com/strongqa/howitzer/wiki/Cucumber-Best-Practices]
+- (Cucumber Wikipedia)[https://en.wikipedia.org/wiki/Cucumber]
+- (Class assignment example of usage of Cucumber)[https://github.com/kevin-nam/ecse428-assignmentb/tree/master/src/test]
+
+
 
