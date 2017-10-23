@@ -1,5 +1,16 @@
 package com.robsab.example;
 
+import static com.robsab.example.StaticVariables.ADDED_TO_CART_SUCCESS_MSG;
+import static com.robsab.example.StaticVariables.ADDED_TO_CART_SUCCESS_MSG_CONTAINER;
+import static com.robsab.example.StaticVariables.ADD_TO_CART_BTN_ID;
+import static com.robsab.example.StaticVariables.CURSOR_NOT_ALLOWED;
+import static com.robsab.example.StaticVariables.FIRST_PRODUCT_RESULT_CONTAINER_SELECTOR;
+import static com.robsab.example.StaticVariables.PRODUCT_URL_TO_BASKETBALL_HOOP_SYSTEM;
+import static com.robsab.example.StaticVariables.SEARCH_BAR_ID;
+import static com.robsab.example.StaticVariables.SEARCH_BAR_SUBMIT_CLASS;
+import static com.robsab.example.StaticVariables.SELECT_BY_SIZE_ID;
+import static com.robsab.example.StaticVariables.STYLE_ATTR;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -13,17 +24,6 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static com.robsab.example.StaticVariables.ADDED_TO_CART_SUCCESS_MSG;
-import static com.robsab.example.StaticVariables.ADDED_TO_CART_SUCCESS_MSG_CONTAINER;
-import static com.robsab.example.StaticVariables.ADD_TO_CART_BTN_ID;
-import static com.robsab.example.StaticVariables.CURSOR_NOT_ALLOWED;
-import static com.robsab.example.StaticVariables.FIRST_PRODUCT_RESULT_CONTAINER_CLASS;
-import static com.robsab.example.StaticVariables.PRODUCT_URL_TO_BASKETBALL_HOOP_SYSTEM;
-import static com.robsab.example.StaticVariables.SEARCH_BAR_ID;
-import static com.robsab.example.StaticVariables.SEARCH_BAR_SUBMIT_CLASS;
-import static com.robsab.example.StaticVariables.SELECT_BY_SIZE_ID;
-import static com.robsab.example.StaticVariables.STYLE_ATTR;
 
 public class AmazonStepDefinitions {
 
@@ -98,7 +98,7 @@ public class AmazonStepDefinitions {
         try {
             System.out.println("Attempting to find container of first product result...");
             WebElement firstProductLinkContainer = (new WebDriverWait(driver, TIMEOUT))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.className(FIRST_PRODUCT_RESULT_CONTAINER_CLASS)));
+                    .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(FIRST_PRODUCT_RESULT_CONTAINER_SELECTOR)));
             System.out.print("Found!\n");
             navigateTo(firstProductLinkContainer.getAttribute("href"));
 
@@ -139,7 +139,7 @@ public class AmazonStepDefinitions {
         try {
             System.out.println("Attempting to find Add To Cart success message... ");
             WebElement successMsgContainer = (new WebDriverWait(driver, TIMEOUT))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id(ADDED_TO_CART_SUCCESS_MSG_CONTAINER)));
+                    .until(ExpectedConditions.presenceOfElementLocated(By.className(ADDED_TO_CART_SUCCESS_MSG_CONTAINER)));
             System.out.print("Found!\n");
 
             Assert.assertTrue(isStringFoundInText(ADDED_TO_CART_SUCCESS_MSG, successMsgContainer.getText()));
